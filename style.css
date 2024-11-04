@@ -1,0 +1,53 @@
+html, body
+{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: #222831;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-grid
+{
+    display: flex;
+    justify-content: center;
+}
+
+.titulo 
+{
+    text-align: center;
+    background-color: darkgoldenrod;
+}
+
+#grid 
+{
+    height: 300px;
+    width: 300px;
+    background-color: white;
+    margin: 12px;
+    display: flex;
+    flex-direction: column;    
+}
+
+.linha
+{
+    display: flex;
+    flex: auto;
+    background-color: black;
+    padding: 1px;
+    gap: 1px;
+}
+
+.pixel
+{
+    flex: auto;
+    background-color: white;
+}
+
+.pixel.permanent-hover
+{
+    background-color: red;
+}
