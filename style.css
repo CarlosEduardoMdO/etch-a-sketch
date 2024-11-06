@@ -50,8 +50,3 @@ html, body
     flex: auto;
     background-color: white;
 }
-
-.pixel.permanent-color
-{
-    background-color: red;
-}

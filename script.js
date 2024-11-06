@@ -83,6 +83,7 @@ function gerarPixelsRgbMode()
             novoPixel.addEventListener("mouseover", (event) => {
                 
                 event.target.style.backgroundColor = getRandomRGB();
+                event.target.style.opacity         = window.getComputedStyle(event.target).getPropertyValue("opacity") - 0.1;
                     
             });       
             
