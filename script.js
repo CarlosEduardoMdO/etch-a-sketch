@@ -3,8 +3,12 @@ const grid          = document.getElementById("grid");
 const buttons       = document.getElementsByClassName("button");
 const eraseButton   = document.getElementById("eraser");
 const customButton  = document.getElementById("custom");
+const rgbButton     = document.getElementById("rgb-effect");
 
 eraseButton.addEventListener("click", () => {descolorirGrid()});
+
+rgbButton.addEventListener("click", () => {gerarPixelsRgbMode()});
+
 customButton.addEventListener("click", () => {
 
     let numPixels = Number(prompt("Insira um número entre 1 e 100 para definir a quantidade de Pixels no quadro."));
@@ -46,8 +50,42 @@ function gerarPixels(numPixels)
             const novoPixel = document.createElement("div");
             
             novoPixel.setAttribute("class", "pixel");
-            novoPixel.addEventListener("mouseover", (event) => {event.target.classList.add("permanent-color")});
+            novoPixel.addEventListener("mouseover", (event, rgbMode) => {
+                
+                event.target.style.backgroundColor = "red";
 
+            });       
+            
+            novaLinha.appendChild(novoPixel);            
+        }
+
+        grid.appendChild(novaLinha);
+    }
+}
+
+function gerarPixelsRgbMode()
+{
+    const tamanhoGrid = grid.childNodes.length - 1;
+
+    apagarGrid();
+    
+    for(i = 1; i <= tamanhoGrid; i++)
+    {
+        const novaLinha = document.createElement("div");
+        
+        novaLinha.setAttribute("class", "linha");
+
+        for(j = 1; j <= tamanhoGrid; j++)
+        {
+            const novoPixel = document.createElement("div");
+            
+            novoPixel.setAttribute("class", "pixel");
+            novoPixel.addEventListener("mouseover", (event) => {
+                
+                event.target.style.backgroundColor = getRandomRGB();
+                    
+            });       
+            
             novaLinha.appendChild(novoPixel);            
         }
 
@@ -68,4 +106,13 @@ function descolorirGrid()
     {
         currentPixel.classList.remove("permanent-color");
     }
+}
+
+function getRandomRGB() 
+{
+    let red = Math.floor(Math.random() * 256); // Red component
+    let green = Math.floor(Math.random() * 256); // Green component
+    let blue = Math.floor(Math.random() * 256); // Blue component
+  
+    return `rgb(${red}, ${green}, ${blue})`; // Return the RGB color as a string
 }
