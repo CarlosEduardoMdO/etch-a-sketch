@@ -20,16 +20,21 @@ html, body
 {
     text-align: center;
     background-color: darkgoldenrod;
+    height: 30px;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;    
 }
 
 #grid 
 {
-    height: 100vw;
-    width: 100vw;
+    height: 35vw;
+    width: 35vw;
     background-color: white;
     margin: 12px;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
+    border: 2px solid darkgoldenrod;    
 }
 
 .linha
@@ -44,10 +49,9 @@ html, body
 {
     flex: auto;
     background-color: white;
-    border: 0.1px solid black;
 }
 
-.pixel:hover
+.pixel.permanent-color
 {
     background-color: red;
 }
